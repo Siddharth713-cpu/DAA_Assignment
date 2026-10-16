@@ -1,0 +1,23 @@
+Loaded 10 test cases.
+
+Test 1 (n=4, W=10) => 150
+
+Test 2 (n=5, W=15) => 100
+
+Test 3 (n=6, W=12) => 150
+
+Test 4 (n=5, W=8) => 90
+
+Test 5 (n=7, W=20) => 122
+
+Test 6 (n=4, W=6) => 90
+
+Test 7 (n=5, W=25) => 47
+
+Test 8 (n=6, W=18) => 95
+
+Test 9 (n=8, W=30) => 290
+
+Test 10 (n=10, W=50) => 100
+
+All results saved to result.txt
