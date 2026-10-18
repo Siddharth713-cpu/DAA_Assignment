@@ -1,3 +1,4 @@
+#include <windows.h>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -34,13 +35,13 @@ int solve(const TestCase& t, int testNo, bool animate){
             if(t.wt[i-1] <= w)
                 dp[i][w] = max(dp[i][w], t.val[i-1] + dp[i-1][w-t.wt[i-1]]);
         }
-        if(animate){ drawTable(dp, i, t.W, testNo); std::this_thread::sleep_for(std::chrono::milliseconds(250)); }
+        if(animate){ drawTable(dp, i, t.W, testNo); Sleep(250); }
     }
     return dp[t.n][t.W];
 }
 
 int main(int argc, char* argv[]){
-    string input = (argc > 1 ? argv[1] : "Knapsack data (2).txt");
+    string input = (argc > 1 ? argv[1] : "input.txt");
     ifstream fin(input);
     if(!fin){ cerr << "Cannot open input file: " << input << "\n"; return 1; }
     vector<TestCase> tests;
@@ -65,7 +66,7 @@ int main(int argc, char* argv[]){
         int ans = solve(tests[i], (int)i+1, animate);
         cout << "\nTest " << i+1 << " (n=" << tests[i].n << ", W=" << tests[i].W << ") => " << ans << "\n";
         fout << "#Test " << i+1 << " (" << tests[i].n << " " << tests[i].W << ") " << ans << "\n";
-        if(animate) std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        if(animate) Sleep(500);
     }
     cout << "\nAll results saved to result.txt\n";
 }
