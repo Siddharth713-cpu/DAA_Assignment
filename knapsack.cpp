@@ -34,7 +34,7 @@ int solve(const TestCase& t, int testNo, bool animate){
             if(t.wt[i-1] <= w)
                 dp[i][w] = max(dp[i][w], t.val[i-1] + dp[i-1][w-t.wt[i-1]]);
         }
-        if(animate){ drawTable(dp, i, t.W, testNo); this_thread::sleep_for(chrono::milliseconds(250)); }
+        if(animate){ drawTable(dp, i, t.W, testNo); std::this_thread::sleep_for(std::chrono::milliseconds(250)); }
     }
     return dp[t.n][t.W];
 }
@@ -65,7 +65,7 @@ int main(int argc, char* argv[]){
         int ans = solve(tests[i], (int)i+1, animate);
         cout << "\nTest " << i+1 << " (n=" << tests[i].n << ", W=" << tests[i].W << ") => " << ans << "\n";
         fout << "#Test " << i+1 << " (" << tests[i].n << " " << tests[i].W << ") " << ans << "\n";
-        if(animate) this_thread::sleep_for(chrono::milliseconds(500));
+        if(animate) std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
     cout << "\nAll results saved to result.txt\n";
 }
